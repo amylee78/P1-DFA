@@ -6,6 +6,14 @@ import fa.State;
 
 public class DFA implements DFAInterface {
 
+
+    
+   
+    public DFA() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("to be written'");
+    }
+
     @Override
     public boolean addState(String name) {
         // TODO Auto-generated method stub
