@@ -421,13 +421,13 @@ public void test3_6() {
     DFA dfa = new DFA();
     dfa.addSigma('0');
 
-    dfa.addState("q0");
-    dfa.addState("q1");
+    dfa.addState('q0');
+    dfa.addState('q1');
 
     dfa.setStart("q0");
     dfa.setFinal("q1");
 
-    assertFalse(dfa.accepts("0"));
+    assertFalse(dfa.accepts('0'));
 }
 
 // test empty string
