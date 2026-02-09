@@ -1,5 +1,11 @@
 package fa;
 
-public class DFAstate extends State {
-    //to be written
+
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class DFAState extends State {
+
+//to be written
 }
