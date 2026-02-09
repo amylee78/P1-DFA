@@ -405,5 +405,136 @@ public void test3_6() {
 	
 	System.out.println("dfa3Swap accept pass");
 }
-	
+
+// DFA rejects strings with symbols not in sigma
+@Test
+    public void testRejectsInvalidSymbols(){
+        DFA dfa = dfa1();
+        assertFalse(dfa.accepts("2"));
+        assertFalse(dfa.accepts("10a1"));
+
+}
+
+// no transition addded
+@Test
+    public void testRejectsMissingTransition() {
+    DFA dfa = new DFA();
+    dfa.addSigma('0');
+
+    dfa.addState('q0');
+    dfa.addState('q1');
+
+    dfa.setStart("q0");
+    dfa.setFinal("q1");
+
+    assertFalse(dfa.accepts('0'));
+}
+
+// test empty string
+    @Test
+    public void testEmptyString() {
+        DFA dfa = new DFA();
+        dfa.addSigma('0');
+
+        dfa.addState("q0");
+        dfa.setStart("q0");
+
+        // this is not final and will reject empty string
+        assertFalse(dfa.accepts(""));
+    }
+
+    // accepted empty string
+    @Test
+    public void testEmptyStringAccepted() {
+        DFA dfa = new DFA();
+        dfa.addSigma('0');
+
+        dfa.addState("q0");
+        dfa.setStart("q0");
+        dfa.setFinal("q0");
+
+        assertTrue(dfa.accepts(""));
+    }
+
+    // test only one start state
+    @Test
+    public void testOnlyOneStartState() {
+        DFA dfa = dfa3();
+
+        assertTrue(dfa.isStart("A"));
+        //old start should be cleared
+        assertFalse(dfa.isStart("D"));
+    }
+
+    // unchange swapping
+    @Test
+    public void testSwapSigmaUnchanged() {
+        DFA dfa = dfa1();
+        DFA swapped = dfa.swap('0','1');
+
+        assertEquals(dfa.getSigma(), swapped.getSigma());
+    }
+
+    //should return null or unchanged DFA depending on spec
+    @Test
+    public void testSwapInvalidCharacter() {
+        DFA dfa = dfa1();
+
+        DFA swapped = dfa.swap('0','9');
+
+        // Should return null or unchanged DFA depending on spec
+        assertNull(swapped);
+    }
+
+
+    // test invalid state
+    @Test
+    public void testGetStateInvalid() {
+        DFA dfa = dfa1();
+
+        assertNull(dfa.getState("notAState"));
+    }
+
+
+    // second transition on the same symbol should fail
+    @Test
+    public void testDeterministicTransitionRule() {
+        DFA dfa = new DFA();
+        dfa.addSigma('0');
+
+        dfa.addState("q0");
+        dfa.addState("q1");
+        dfa.addState("q2");
+
+        dfa.setStart("q0");
+
+        assertTrue(dfa.addTransition("q0", "q1", '0'));
+
+        // second transition on same symbol should fail
+        assertFalse(dfa.addTransition("q0", "q2", '0'));
+    }
+
+    @Test
+    public void testToStringWithUnusedState() {
+        DFA dfa = new DFA();
+        dfa.addSigma('0');
+
+        dfa.addState("q0");
+        // not used
+        dfa.addState("q1");
+
+        dfa.setStart("q0");
+
+        String out = dfa.toString();
+
+        assertTrue(out.contains("q1"));
+    }
+
+
+
+
+
+
+
+
 }
