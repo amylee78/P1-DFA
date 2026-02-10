@@ -1,11 +1,23 @@
 package fa;
 
-
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DFAState extends State {
 
-//to be written
+
+    private Map<Character, DFAState> transitions;
+
+    public DFAState(String name) {
+        super(name);
+        transitions = new LinkedHashMap<>();
+    }
+
+    public void addTransition(char symbol, DFAState toState) {
+        transitions.put(symbol, toState);
+    }
+
+    public DFAState getTransition(char symbol) {
+        return transitions.get(symbol);
+    }
 }
