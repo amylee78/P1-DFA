@@ -531,6 +531,46 @@ public void test3_6() {
     }
 
 
+//tests empty DFA. Has no start state
+	@Test
+public void testEmptyDFA() {
+	DFA dfa = new DFA();
+	dfa.addSigma('0');
+	dfa.addSigma('1');
+	
+
+	assertFalse(dfa.accepts("0"));
+	assertFalse(dfa.accepts("1"));
+	assertFalse(dfa.accepts("e"));
+	
+	System.out.println("Empty DFA test pass");
+}
+
+
+//tests mu/tple final states
+	@Test
+public void testMultipleFinalStates() {
+    DFA dfa = dfa3(); 
+
+    //checks final stats G and D
+    assertTrue(dfa.isFinal("G"));
+    assertTrue(dfa.isFinal("D"));
+
+    //checks some  state are not final states
+    assertFalse(dfa.isFinal("A"));
+    assertFalse(dfa.isFinal("B"));
+
+
+    assertTrue(dfa.accepts("121"));
+    assertTrue(dfa.accepts("11"));
+	assertFalse(dfa.accepts("1"));
+    assertFalse(dfa.accepts("2"));
+
+    System.out.println("Multiple final states test pass");
+}
+
+
+
 
 
 
