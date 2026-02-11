@@ -1,7 +1,9 @@
-package fa;
+package fa.dfa;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import fa.State;
 
 public class DFAState extends State {
 
