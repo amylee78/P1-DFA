@@ -6,8 +6,6 @@ import fa.State;
 
 public class DFA implements DFAInterface {
 
-
-    
    
     public DFA() {
         // TODO Auto-generated method stub
