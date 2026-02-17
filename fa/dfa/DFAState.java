@@ -2,8 +2,11 @@ package fa.dfa;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import fa.State;
+
+/**
+ * 
+ */
 
 public class DFAState extends State {
 
@@ -12,6 +15,8 @@ public class DFAState extends State {
 
     /**
      * constructor for DFAState.
+     * initially not final state and does not 
+     * have any transition.
      * @param name
     */
     public DFAState(String name) {
@@ -22,14 +27,15 @@ public class DFAState extends State {
 
     /**
      * returns weather the state is final accepting state or not
-     * @return
+     * @return true if is final state, otherwise false
      */
     public boolean isFinal() {
-    return isFinal;
+        return isFinal;
         }
 
     /**
-     * wip
+     * sets wether it the state is a final or not.
+     * if isFinal true, set it as final.
      * @param isFinal
      */
     public void setFinal(boolean isFinal) {
@@ -37,26 +43,30 @@ public class DFAState extends State {
         }
 
     /**
-     * wip
-     * @param symbol
-     * @param toState
+     * adds or updates transition
+     * 
+     * if a a transition exists, it should overwrite it
+     * @param symbol the input character
+     * @param toState the destination to which state
      */
     public void addTransition(char symbol, DFAState toState) {
         transitions.put(symbol, toState);
         }
     
     /**
-     * wip
+     * returns the state reached from this state after reading the 
+     * symbol. returns null if  no transions exits
      * @param symbol
-     * @return
+     * @return the next dfastate 
      */
     public DFAState getTransition(char symbol) {
         return transitions.get(symbol);
         }
 
     /**
-     * wip
-     * @return
+     * represents tha map of the transison table that maps to the next 
+     * dfa state.
+     * @return the complete transition map for the current state
      */
     public Map<Character, DFAState> getTransitions() {
         return transitions;
