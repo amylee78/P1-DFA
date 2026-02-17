@@ -13,28 +13,28 @@ public class DFAState extends State {
     /**
      * constructor for DFAState.
      * @param name
-     */
+    */
     public DFAState(String name) {
         super(name);
         this.isFinal = false;
         transitions = new LinkedHashMap<>();
-    }
+        }
 
     /**
      * returns weather the state is final accepting state or not
      * @return
      */
     public boolean isFinal() {
-        return this.isFinal;
-    }
+    return isFinal;
+        }
 
     /**
      * wip
      * @param isFinal
      */
     public void setFinal(boolean isFinal) {
-        this.isFinal = isFinal;
-    }
+    this.isFinal = isFinal;
+        }
 
     /**
      * wip
@@ -43,8 +43,8 @@ public class DFAState extends State {
      */
     public void addTransition(char symbol, DFAState toState) {
         transitions.put(symbol, toState);
-    }
-
+        }
+    
     /**
      * wip
      * @param symbol
@@ -52,7 +52,7 @@ public class DFAState extends State {
      */
     public DFAState getTransition(char symbol) {
         return transitions.get(symbol);
-    }
+        }
 
     /**
      * wip
@@ -60,5 +60,5 @@ public class DFAState extends State {
      */
     public Map<Character, DFAState> getTransitions() {
         return transitions;
-    }
+        }
 }

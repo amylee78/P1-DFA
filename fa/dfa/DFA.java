@@ -22,17 +22,7 @@ import java.util.Map;
  */
 public class DFA implements DFAInterface {
 
-    // Instance variables representing the DFA 5-tuple
-    private LinkedHashSet<DFAState> Q;              // Set of all states
-    private LinkedHashSet<Character> sigma;         // Alphabet (set of input symbols)
-    private DFAState q0;                            // Start state
-    private LinkedHashSet<DFAState> F;              // Set of final/accepting states
-    private HashMap<String, DFAState> stateMap;     // Map for quick state lookup by name
-
-    /**
-     * Constructor for DFA.
-     * Initializes an empty DFA with no states, symbols, or transitions.
-     */
+   
     public DFA() {
         Q = new LinkedHashSet<>();
         sigma = new LinkedHashSet<>();
