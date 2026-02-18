@@ -23,6 +23,14 @@ import java.util.Map;
 public class DFA implements DFAInterface {
 
    
+    private Set<DFAState> Q;
+    private Set<Character> sigma;
+    private Set<DFAState> F;
+    private Map<String, DFAState> stateMap;
+    private DFAState q0;
+
+
+  
     public DFA() {
         Q = new LinkedHashSet<>();
         sigma = new LinkedHashSet<>();
@@ -134,6 +142,12 @@ public class DFA implements DFAInterface {
      */
     @Override
     public boolean accepts(String s) {
+
+        //if there is no start state return false
+        if (q0 == null) 
+        {
+            return false;
+        }
         // Start at the start state
         DFAState currentState = q0;
 
@@ -229,6 +243,11 @@ public class DFA implements DFAInterface {
      */
     @Override
     public DFA swap(char symb1, char symb2) {
+
+        if (!sigma.contains(symb1) || !sigma.contains(symb2)) {
+        // Returns null if either symbol is not in the alphabet
+        return null;
+        }
         // Create a new DFA
         DFA swappedDFA = new DFA();
 
