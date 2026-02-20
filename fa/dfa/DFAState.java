@@ -6,6 +6,7 @@ import fa.State;
 
 /**
   * Represents a single state in a Deterministic Finite Automaton (DFA).
+  * Each state has a name (label) and a set of outgoing transitions.
  * 
  * Each DFAState:
  *  Has a name (inherited from State)
@@ -16,18 +17,15 @@ import fa.State;
 
 public class DFAState extends State {
 
-    private boolean isFinal;
+
     private Map<Character, DFAState> transitions;
 
     /**
      * constructor for DFAState.
-     * initially not an final state and does not 
-     * have any transition.
      * @param name
     */
     public DFAState(String name) {
         super(name);
-        this.isFinal = false;
         transitions = new LinkedHashMap<>();
     }
 
