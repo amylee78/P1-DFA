@@ -5,7 +5,13 @@ import java.util.Map;
 import fa.State;
 
 /**
+  * Represents a single state in a Deterministic Finite Automaton (DFA).
  * 
+ * Each DFAState:
+ *  Has a name (inherited from State)
+ *  May be marked as a final (accepting) state
+ * Keeps track of the transitions from current state to another 
+ * @author Maria Gomez Baeza, Amy  Lee
  */
 
 public class DFAState extends State {
@@ -15,7 +21,7 @@ public class DFAState extends State {
 
     /**
      * constructor for DFAState.
-     * initially not final state and does not 
+     * initially not an final state and does not 
      * have any transition.
      * @param name
     */
@@ -23,25 +29,9 @@ public class DFAState extends State {
         super(name);
         this.isFinal = false;
         transitions = new LinkedHashMap<>();
-        }
+    }
 
-    /**
-     * returns weather the state is final accepting state or not
-     * @return true if is final state, otherwise false
-     */
-    public boolean isFinal() {
-        return isFinal;
-        }
-
-    /**
-     * sets wether it the state is a final or not.
-     * if isFinal true, set it as final.
-     * @param isFinal
-     */
-    public void setFinal(boolean isFinal) {
-    this.isFinal = isFinal;
-        }
-
+  
     /**
      * adds or updates transition
      * 
@@ -51,7 +41,7 @@ public class DFAState extends State {
      */
     public void addTransition(char symbol, DFAState toState) {
         transitions.put(symbol, toState);
-        }
+    }
     
     /**
      * returns the state reached from this state after reading the 
@@ -61,7 +51,7 @@ public class DFAState extends State {
      */
     public DFAState getTransition(char symbol) {
         return transitions.get(symbol);
-        }
+    }
 
     /**
      * represents tha map of the transison table that maps to the next 
@@ -70,5 +60,5 @@ public class DFAState extends State {
      */
     public Map<Character, DFAState> getTransitions() {
         return transitions;
-        }
+    }
 }
