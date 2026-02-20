@@ -18,7 +18,7 @@ import java.util.Map;
  * This implementation uses LinkedHashSet to preserve insertion order
  * for states and alphabet symbols, as required by the specification.
  *
- * @author [Your Name Here]
+ * @author Maria Gomez Baeza, Amy  Lee
  */
 public class DFA implements DFAInterface {
 
@@ -88,8 +88,7 @@ public class DFA implements DFAInterface {
         if (state == null) {
             return false;
         }
-        // Call State's setFinal method with true parameter
-        state.setFinal(true);
+        
         F.add(state);
         return true;
     }
