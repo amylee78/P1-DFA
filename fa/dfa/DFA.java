@@ -124,6 +124,11 @@ public class DFA implements DFAInterface {
             return false;
         }
 
+        // Checks if a transition already exists for this symbol. if so return false 
+        if (from.getTransition(onSymb) != null) {  
+        return false;
+        }
+
         // Add the transition
         from.addTransition(onSymb, to);
         return true;
