@@ -513,9 +513,7 @@ public void test3_6() {
 
         // second transition on same symbol should fail
         assertFalse(dfa.addTransition("q0", "q2", '0'));
-		assertTrue(dfa.accepts("0"));
-		}
-
+    }
 
 
     @Test

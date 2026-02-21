@@ -114,6 +114,7 @@ public class DFA implements DFAInterface {
      *         or the symbol is not in the alphabet
      */
     @Override
+ 
     public boolean addTransition(String fromState, String toState, char onSymb) {
         // Get the state objects
         DFAState from = stateMap.get(fromState);
@@ -123,17 +124,16 @@ public class DFA implements DFAInterface {
         if (from == null || to == null || !sigma.contains(onSymb)) {
             return false;
         }
-
-        // Checks if a transition already exists for this symbol. if so return false 
+       // Checks if a transition already exists for this symbol. if so return false 
         if (from.getTransition(onSymb) != null) {  
-        return false;
+            return false;
         }
 
         // Add the transition
-        from.addTransition(onSymb, to);
-        return true;
+        
+         from.addTransition(onSymb, to);
+         return true;
     }
-
     /**
      * Determines if a string is accepted by this DFA.
      * A string is accepted if, starting from the start state and
@@ -390,3 +390,5 @@ public class DFA implements DFAInterface {
         return sb.toString();
     }
 }
+
+
