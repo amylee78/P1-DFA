@@ -25,8 +25,8 @@ public class DFAState extends State {
      * @param name
     */
     public DFAState(String name) {
-        super(name);
-        transitions = new LinkedHashMap<>();
+        super(name); //calls stat name via super
+        transitions = new LinkedHashMap<>(); //maintains transition order
     }
 
   
@@ -38,7 +38,7 @@ public class DFAState extends State {
      * @param toState the destination to which state
      */
     public void addTransition(char symbol, DFAState toState) {
-        transitions.put(symbol, toState);
+        transitions.put(symbol, toState); //stores transition
     }
     
     /**
@@ -48,7 +48,7 @@ public class DFAState extends State {
      * @return the next dfastate 
      */
     public DFAState getTransition(char symbol) {
-        return transitions.get(symbol);
+        return transitions.get(symbol); //gets transion on map
     }
 
     /**
@@ -57,6 +57,6 @@ public class DFAState extends State {
      * @return the complete transition map for the current state
      */
     public Map<Character, DFAState> getTransitions() {
-        return transitions;
+        return transitions; //returns intial transiton
     }
 }
