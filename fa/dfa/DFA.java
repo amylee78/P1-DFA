@@ -18,7 +18,7 @@ import java.util.Map;
  * This implementation uses LinkedHashSet to preserve insertion order
  * for states and alphabet symbols, as required by the specification.
  *
- * @author Maria Gomez Baeza, Amy  Lee
+ * @author Maria Gomez Baeza, Amy Lee, group 12, section 002
  */
 public class DFA implements DFAInterface {
 
