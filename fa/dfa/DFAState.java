@@ -10,7 +10,6 @@ import fa.State;
  * 
  * Each DFAState:
  *  Has a name (inherited from State)
- *  May be marked as a final (accepting) state
  * Keeps track of the transitions from current state to another 
  * @author  Maria Gomez Baeza, Amy Lee, group 12, section 002
  */
