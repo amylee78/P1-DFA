@@ -30,7 +30,12 @@ TO compile and run this project, please run the following commands
         2. Then to test out the code  in your terminal on your top directly use this command to compile the DFA.test
             -  javac -cp .:/usr/share/java/junit.jar ./test/dfa/DFATest.java
         3. use this to run the test
-            -  java -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest/hamcrest.jar org.junit.runner.JUnitCore test.dfa.DFATest 
+            -  java -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest/hamcrest.jar org.jucd -
+            nit.runner.JUnitCore test.dfa.DFATest 
+        4. If running int oisses such as having junit5. Please use these commands once you are in the root file to compile it
+            -javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar test/dfa/DFATest.java 
+        5. then to run it use this command 
+            -  java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore test.dfa.DFATest
 
 ### Sources used
 
